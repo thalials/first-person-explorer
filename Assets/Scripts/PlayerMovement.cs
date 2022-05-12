@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
+    GameManager gm;
 
     [Header("Movement")]
     public float moveSpeed;
@@ -40,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        gm = GameManager.GetInstance();
         rb.freezeRotation = true;
         readyToJump = true;
     }
@@ -67,6 +69,14 @@ public class PlayerMovement : MonoBehaviour
             readyToJump = false;
             Jump();
             Invoke(nameof(ResetJump), jumpCooldown);
+        }
+
+        if (
+            Input.GetKey(KeyCode.Escape) &&
+            gm.gameState == GameManager.GameState.GAME
+        )
+        {
+            gm.ChangeState(GameManager.GameState.PAUSE);
         }
     }
 
@@ -102,7 +112,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (!isGrounded)
         {
-            Debug.Log("Should Jump");
             rb
                 .AddForce(moveDirection.normalized *
                 moveSpeed *
