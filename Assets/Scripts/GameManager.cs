@@ -9,8 +9,8 @@ public class GameManager
         MENU,
         GAME,
         PAUSE,
-        OPTIONS,
-        INSTRUCTIONS,
+        // OPTIONS,
+        // INSTRUCTIONS,
         ENDGAME
     }
 

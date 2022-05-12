@@ -5,33 +5,49 @@ public class MenuButtons : MonoBehaviour
 {
     GameManager gm;
 
+    public GameObject Settings;
+
+    public GameObject Instructions;
+
     private void OnEnable()
     {
         gm = GameManager.GetInstance();
     }
 
-    public void PauseGame()
+    public void PlayGame()
     {
-        gm.ChangeState(GameManager.GameState.PAUSE);
+        gm.ChangeState(GameManager.GameState.GAME);
+        Settings.SetActive(false);
+        Instructions.SetActive(false);
     }
 
-    public void BackToMainMenu()
+    public void GoToMainMenu()
     {
         gm.ChangeState(GameManager.GameState.MENU);
     }
 
-    public void PlayGame()
+    public void GoToPauseMenu()
     {
-        gm.ChangeState(GameManager.GameState.GAME);
+        gm.ChangeState(GameManager.GameState.PAUSE);
     }
 
-    public void GoToOptions()
+    public void OpenSettings()
     {
-        gm.ChangeState(GameManager.GameState.OPTIONS);
+        Settings.SetActive(true);
     }
 
-    public void GoToInstructions()
+    public void OpenInstructions()
     {
-        gm.ChangeState(GameManager.GameState.INSTRUCTIONS);
+        Instructions.SetActive(true);
+    }
+
+    public void CloseInstructions()
+    {
+        Instructions.SetActive(false);
+    }
+
+    public void CloseSettings()
+    {
+        Settings.SetActive(false);
     }
 }

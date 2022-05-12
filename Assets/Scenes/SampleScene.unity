@@ -392,7 +392,7 @@ RectTransform:
   - {fileID: 505324982}
   - {fileID: 2100596333}
   m_Father: {fileID: 881987688}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -702,8 +702,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.0000019073486}
-  m_SizeDelta: {x: 262.886, y: 183.8193}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 270, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &68928588 stripped
 RectTransform:
@@ -891,7 +891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522932, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToOptions
+      value: OpenSettings
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522932, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -987,7 +987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522934, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_Name
-      value: OptionsButton
+      value: OpenSettingsButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
@@ -1147,7 +1147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522932, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToInstructions
+      value: OpenInstructions
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522932, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1243,7 +1243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522934, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_Name
-      value: InstructionsButton
+      value: OpenInstructionsButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
@@ -2306,7 +2306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522932, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToOptions
+      value: OpenSettings
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522932, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2402,7 +2402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522934, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_Name
-      value: OptionsButton
+      value: OpenSettingsButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
@@ -3404,10 +3404,10 @@ RectTransform:
   m_Father: {fileID: 1757406506}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 400, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &654942715
 MonoBehaviour:
@@ -3916,7 +3916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522932, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToMainMenu
+      value: CloseSettings
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522932, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -4012,7 +4012,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522934, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_Name
-      value: Back
+      value: CloseSettingsButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
@@ -4552,10 +4552,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1471684793}
-  - {fileID: 2062515302}
   - {fileID: 27967913}
-  - {fileID: 1757406506}
   - {fileID: 981258583}
+  - {fileID: 2062515302}
+  - {fileID: 1757406506}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4650,11 +4650,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522932, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToMainMenu
+      value: CloseInstructions
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522932, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: MenuButtons, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038750896012522932, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522932, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -4746,7 +4750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522934, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_Name
-      value: BackToMainMenu
+      value: CloseInstructionsButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
@@ -5163,7 +5167,7 @@ RectTransform:
   - {fileID: 219315115}
   - {fileID: 604720855}
   m_Father: {fileID: 881987688}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7448,10 +7452,10 @@ RectTransform:
   m_Father: {fileID: 2062515302}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 400, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1328113962
 MonoBehaviour:
@@ -7758,6 +7762,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b1cba4fe763dc4da582326424e3e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Settings: {fileID: 2062515301}
+  Instructions: {fileID: 1757406505}
 --- !u!4 &1471684793
 Transform:
   m_ObjectHideFlags: 0
@@ -8465,9 +8471,8 @@ GameObject:
   - component: {fileID: 1757406510}
   - component: {fileID: 1757406509}
   - component: {fileID: 1757406508}
-  - component: {fileID: 1757406507}
   m_Layer: 5
-  m_Name: Instructions
+  m_Name: SubMenu Instructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8487,26 +8492,13 @@ RectTransform:
   - {fileID: 654942714}
   - {fileID: 1834707062}
   m_Father: {fileID: 881987688}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1757406507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757406505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1e8b9b5a35efdf43837334507beef34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeStates: 04000000
 --- !u!114 &1757406508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8913,7 +8905,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 262.886, y: 211.7612}
+  m_SizeDelta: {x: 270, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1870875981
 GameObject:
@@ -9691,9 +9683,8 @@ GameObject:
   - component: {fileID: 2062515306}
   - component: {fileID: 2062515305}
   - component: {fileID: 2062515304}
-  - component: {fileID: 2062515307}
   m_Layer: 5
-  m_Name: OptionsMenu
+  m_Name: SubMenu Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9713,7 +9704,7 @@ RectTransform:
   - {fileID: 1328113961}
   - {fileID: 60995219}
   m_Father: {fileID: 881987688}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9781,19 +9772,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &2062515307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062515301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1e8b9b5a35efdf43837334507beef34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeStates: 03000000
 --- !u!1001 &2063173356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9855,7 +9833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522932, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToInstructions
+      value: OpenInstructions
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522932, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -9951,7 +9929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5038750896012522934, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
       propertyPath: m_Name
-      value: InstructionsButton
+      value: OpenInstructionsButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c191db77b5d87dc4bb355a144c3b5b0f, type: 3}
