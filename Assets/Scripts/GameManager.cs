@@ -14,6 +14,8 @@ public class GameManager
         ENDGAME
     }
 
+    public TimeHandler timer;
+
     public GameState gameState { get; private set; }
 
     private static GameManager _instance;
@@ -30,7 +32,7 @@ public class GameManager
             (gameState == GameState.PAUSE && nextState == GameState.MENU)
         )
         {
-            // restart game
+            // ResetStats(); // reset
         }
 
         Debug.Log($"NextState: {nextState}");
@@ -62,12 +64,8 @@ public class GameManager
 
     private GameManager()
     {
-        this.Setup();
-    }
-
-    private void Setup()
-    {
         gameState = GameState.MENU;
+        timer = new TimeHandler(this);
         Time.timeScale = 0;
     }
 

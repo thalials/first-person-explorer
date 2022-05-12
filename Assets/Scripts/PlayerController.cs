@@ -149,10 +149,9 @@ public class PlayerController : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log($"Collided with tag {collision.gameObject.tag}");
         if (collision.gameObject.tag == "Spaceship")
         {
-            Debug.Log("Collided with spaceship");
+            gm.ChangeState(GameManager.GameState.ENDGAME);
         }
     }
 }
