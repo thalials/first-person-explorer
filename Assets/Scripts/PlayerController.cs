@@ -146,4 +146,13 @@ public class PlayerController : MonoBehaviour
     {
         readyToJump = true;
     }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log($"Collided with tag {collision.gameObject.tag}");
+        if (collision.gameObject.tag == "Spaceship")
+        {
+            Debug.Log("Collided with spaceship");
+        }
+    }
 }
