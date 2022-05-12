@@ -4,51 +4,146 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    float _baseSpeed = 10.0f;
+    Rigidbody rb;
 
-    // float _gravidade = 9.8f;
-    //Referência usada para a câmera filha do jogador
-    GameObject playerCamera;
+    GameManager gm;
 
-    //Utilizada para poder travar a rotação no angulo que quisermos.
-    float cameraRotation;
+    [Header("Movement")]
+    public float moveSpeed;
 
-    CharacterController characterController;
+    public Transform orientation;
 
-    void Start()
+    public float groundDrag;
+
+    public float jumpForce;
+
+    public float jumpCooldown;
+
+    public float airMultiplier;
+
+    bool readyToJump;
+
+    float horizontalInput;
+
+    float verticalInput;
+
+    Vector3 moveDirection;
+
+    [Header("Keybinds")]
+    public KeyCode jumpKey = KeyCode.Space;
+
+    [Header("Ground Check")]
+    public float playerHeight;
+
+    public LayerMask groundMask;
+
+    bool isGrounded;
+
+    private void Start()
     {
-        characterController = GetComponent<CharacterController>();
-        playerCamera = GameObject.Find("Main Camera");
-        cameraRotation = 0.0f;
+        rb = GetComponent<Rigidbody>();
+        gm = GameManager.GetInstance();
+        rb.freezeRotation = true;
+        readyToJump = true;
     }
 
-    void Update()
+    private void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        GetInput();
 
-        //Verificando se é preciso aplicar a gravidade
-        //    float y = 0;
-        //    if(!characterController.isGrounded){
-        //        y = _gravidade;
-        //    }
-        //Tratando movimentação do mouse
-        float mouse_dX = Input.GetAxis("Mouse X");
-        float mouse_dY = Input.GetAxis("Mouse Y");
+        HandleGround();
+    }
 
-        //Tratando a rotação da câmera
-        cameraRotation += mouse_dY;
-        cameraRotation = Mathf.Clamp(cameraRotation, 0.0f, 0.0f);
+    private void FixedUpdate()
+    {
+        HandleMovement();
+        SpeedControl();
+    }
 
-        //   Vector3 direction = new Vector3(-x, 0, -z);
-        Vector3 direction =
-            transform.right * (x) +
-            transform.up * (0) +
-            transform.forward * (z);
-        characterController.Move(direction * _baseSpeed * Time.deltaTime);
-        transform.Rotate(Vector3.up, mouse_dX);
+    private void GetInput()
+    {
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
 
-        playerCamera.transform.localRotation =
-            Quaternion.Euler(cameraRotation, 0.0f, 0.0f);
+        if (Input.GetKey(jumpKey) && readyToJump && isGrounded)
+        {
+            readyToJump = false;
+            Jump();
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
+
+        if (
+            Input.GetKey(KeyCode.Escape) &&
+            gm.gameState == GameManager.GameState.GAME
+        )
+        {
+            gm.ChangeState(GameManager.GameState.PAUSE);
+        }
+    }
+
+    private void HandleGround()
+    {
+        // Verifica se o player está em contato com o solo;
+        // para isso, lança um raio para baixo (relativo ao player) e retorna
+        // true se o raio cruza com a superfício de um collider dentro do range de distância especificado;
+        isGrounded =
+            Physics
+                .Raycast(transform.position,
+                Vector3.down,
+                playerHeight * 0.5f + 0.2f,
+                groundMask);
+        if (isGrounded)
+            rb.drag = groundDrag; // atrito
+        else
+            rb.drag = 0;
+    }
+
+    private void HandleMovement()
+    {
+        // recalcula a direção
+        moveDirection =
+            orientation.forward * verticalInput +
+            orientation.right * horizontalInput;
+
+        if (isGrounded)
+        {
+            rb
+                .AddForce(moveDirection.normalized * moveSpeed * 10f,
+                ForceMode.Force);
+        }
+        else if (!isGrounded)
+        {
+            rb
+                .AddForce(moveDirection.normalized *
+                moveSpeed *
+                10f *
+                airMultiplier,
+                ForceMode.Force);
+        }
+    }
+
+    // limita a velocidade do player para o valor especificado (moveSpeed)
+    private void SpeedControl()
+    {
+        Vector3 flatVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        if (flatVelocity.magnitude > moveSpeed)
+        {
+            Vector3 limitedVelocity = flatVelocity.normalized * moveSpeed;
+            rb.velocity =
+                new Vector3(limitedVelocity.x,
+                    rb.velocity.y,
+                    limitedVelocity.z);
+        }
+    }
+
+    private void Jump()
+    {
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+
+    private void ResetJump()
+    {
+        readyToJump = true;
     }
 }
