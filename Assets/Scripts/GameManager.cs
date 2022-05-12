@@ -33,15 +33,17 @@ public class GameManager
             // restart game
         }
 
-        Debug.Log($"nextState: {nextState}");
+        Debug.Log($"NextState: {nextState}");
 
         if (nextState == GameState.GAME)
         {
             LockCursor();
+            Time.timeScale = 1;
         }
         else
         {
             UnlockCursor();
+            Time.timeScale = 0;
         }
 
         gameState = nextState;
@@ -66,6 +68,7 @@ public class GameManager
     private void Setup()
     {
         gameState = GameState.MENU;
+        Time.timeScale = 0;
     }
 
     void LockCursor()
