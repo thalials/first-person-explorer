@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
 
+    public Vector3 startingPosition;
+
+    public Quaternion startingRotation;
+
     public Transform orientation;
 
     public float groundDrag;
@@ -39,19 +43,34 @@ public class PlayerController : MonoBehaviour
 
     bool isGrounded;
 
+    private void Awake()
+    {
+        startingPosition = transform.position;
+        startingRotation = transform.rotation;
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         gm = GameManager.GetInstance();
         rb.freezeRotation = true;
         readyToJump = true;
+        ResetPosition();
+    }
+
+    private void ResetPosition()
+    {
+        transform.position = startingPosition;
     }
 
     private void Update()
     {
         GetInput();
-
         HandleGround();
+        if (gm.gameState == GameManager.GameState.MENU)
+        {
+            ResetPosition();
+        }
     }
 
     private void FixedUpdate()

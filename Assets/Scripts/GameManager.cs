@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager
 {
@@ -9,8 +10,6 @@ public class GameManager
         MENU,
         GAME,
         PAUSE,
-        // OPTIONS,
-        // INSTRUCTIONS,
         ENDGAME
     }
 
@@ -32,7 +31,7 @@ public class GameManager
             (gameState == GameState.PAUSE && nextState == GameState.MENU)
         )
         {
-            // ResetStats(); // reset
+            Reset();
         }
 
         Debug.Log($"NextState: {nextState}");
@@ -67,6 +66,12 @@ public class GameManager
         gameState = GameState.MENU;
         timer = new TimeHandler(this);
         Time.timeScale = 0;
+        Reset();
+    }
+
+    public void Reset()
+    {
+        timer.Reset();
     }
 
     void LockCursor()

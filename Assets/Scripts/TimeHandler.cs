@@ -14,9 +14,9 @@ public class TimeHandler
 
     private GameManager gm;
 
-    public TimeHandler(GameManager gm)
+    public TimeHandler(GameManager gameManagerInstance)
     {
-        this.gm = gm;
+        this.gm = gameManagerInstance;
     }
 
     public void Update()
@@ -24,31 +24,36 @@ public class TimeHandler
         if (gm.gameState != GameManager.GameState.GAME) return;
 
         float now = Time.time;
-        int deltaTime = (int)(now - this._lastCheck);
+        int deltaTime = (int)(now - _lastCheck);
 
         if (deltaTime >= 1)
         {
-            this.seconds++;
+            seconds++;
 
-            if (this.seconds >= 60)
+            if (seconds >= 60)
             {
-                this.seconds = 0;
-                this.minutes++;
+                seconds = 0;
+                minutes++;
             }
 
-            this._lastCheck = Time.time;
+            _lastCheck = Time.time;
         }
 
-        if (minutes * 60 + seconds > timeLimit)
+        if (TimeLimitReached())
         {
             gm.ChangeState(GameManager.GameState.ENDGAME);
         }
     }
 
+    public bool TimeLimitReached()
+    {
+        return minutes * 60 + seconds > timeLimit;
+    }
+
     public void Reset()
     {
-        this.minutes = 0;
-        this.seconds = 0;
-        this._lastCheck = 0.0f;
+        minutes = 0;
+        seconds = 0;
+        _lastCheck = 0.0f;
     }
 }
